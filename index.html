@@ -62,7 +62,9 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
 /* hero */
 .hero{padding:64px 0 96px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 400px at 12% 8%,var(--accent-soft),transparent 60%),radial-gradient(700px 500px at 88% 20%,var(--accent-soft),transparent 60%)}
-.hero-grid{position:relative;display:grid;grid-template-columns:400px 1fr;gap:64px;align-items:center}
+.hero-grid{position:relative;display:grid;grid-template-columns:520px 1fr;gap:56px;align-items:center}
+@media(max-width:1120px){.hero-grid{grid-template-columns:480px 1fr;gap:36px}}
+@media(max-width:1020px){.hero-grid{grid-template-columns:430px 1fr;gap:28px}}
 @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:48px}}
 
 /* phone demo */
@@ -74,16 +76,22 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
 .back-btn:hover{color:var(--text)}
 .back-btn svg{width:15px;height:15px}
 .breadcrumb{font-size:13px;color:var(--muted);text-align:right;transition:opacity .3s ease}
-.phone{width:100%;max-width:330px;margin:0 auto;background:var(--phone-bg);border:1px solid var(--phone-border);border-radius:18px 18px 40px 40px;padding:13px;box-shadow:var(--shadow);transition:background .4s ease,border-color .4s ease}
-.phone-screen{position:relative;aspect-ratio:515/657;overflow:hidden;border-radius:9px 9px 28px 28px;background:#000}
+.phone{width:100%;max-width:520px;margin:0 auto;background:var(--phone-bg);border:1px solid var(--phone-border);border-radius:26px;padding:10px;box-shadow:var(--shadow);transition:background .4s ease,border-color .4s ease}
+.phone-screen{position:relative;display:block;width:100%;aspect-ratio:515/657;overflow:hidden;border-radius:16px;background:#000;cursor:zoom-in;text-align:left;transition:box-shadow .25s ease}
+.phone-screen:hover{box-shadow:0 0 0 2px var(--accent) inset}
+.phone-screen:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top;transition:opacity .35s ease}
+.zoom-badge{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:rgba(9,10,13,.55);color:#fff;opacity:0;transition:opacity .25s ease;pointer-events:none}
+.zoom-badge svg{width:17px;height:17px}
+@media(hover:hover){.phone-screen:hover .zoom-badge{opacity:1}}
+@media(hover:none){.zoom-badge{display:none}}
 .phone-screen img.anim-forward{animation:slideF .42s cubic-bezier(.22,.9,.34,1)}
 .phone-screen img.anim-back{animation:slideB .42s cubic-bezier(.22,.9,.34,1)}
 @keyframes slideF{from{opacity:.2;transform:translateX(26px) scale(.985)}to{opacity:1;transform:none}}
 @keyframes slideB{from{opacity:.2;transform:translateX(-26px) scale(.985)}to{opacity:1;transform:none}}
 
 /* controls */
-.controls{margin-top:16px;max-width:330px;margin-left:auto;margin-right:auto}
+.controls{margin-top:16px;max-width:520px;margin-left:auto;margin-right:auto}
 .tabs{display:flex;gap:6px;background:var(--surface-2);padding:6px;border-radius:16px;border:1px solid var(--border);transition:background .4s ease,border-color .4s ease}
 .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 2px;border-radius:12px;color:var(--muted);font-size:10.5px;font-weight:600;transition:color .2s ease,background .2s ease,transform .15s ease}
 .tab svg{width:19px;height:19px}
@@ -177,6 +185,16 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
 .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:11px 18px;border-radius:12px;font-size:14px;font-weight:500;opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease;z-index:100}
 .toast.visible{opacity:1;transform:translateX(-50%) translateY(0)}
 
+/* lightbox: скриншот крупно */
+.lightbox{position:fixed;inset:0;z-index:120;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:rgba(9,10,13,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .25s ease}
+.lightbox[hidden]{display:none}
+.lightbox.visible{opacity:1}
+.lightbox img{max-width:min(94vw,660px);max-height:calc(100vh - 130px);width:auto;height:auto;border-radius:14px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9)}
+.lightbox-caption{font-size:14px;font-weight:600;color:rgba(255,255,255,.86)}
+.lightbox-close{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;transition:background .2s ease}
+.lightbox-close:hover{background:rgba(255,255,255,.22)}
+.lightbox-close svg{width:20px;height:20px}
+
 @media(max-width:640px){.container{padding:0 20px}.nav{display:none}section{padding:64px 0}.hero{padding:40px 0 64px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 
@@ -214,9 +232,10 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
           <span class="breadcrumb" id="breadcrumb">Главный экран</span>
         </div>
         <div class="phone">
-          <div class="phone-screen">
+          <button class="phone-screen" id="phone-zoom" type="button" aria-label="Открыть скриншот крупно">
             <img id="phone-img" src="Screenshots v3/Главный экран (светлый).png" width="660" height="842" alt="Экран SelfCRM: главный экран приложения">
-          </div>
+            <span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+          </button>
         </div>
         <div class="controls">
           <div class="tabs" id="tabs">
@@ -230,7 +249,7 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
             <button class="action-pill" id="action-pill"><span id="action-label"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </div>
         </div>
-        <p class="demo-hint">Нажимайте кнопки — это живое демо приложения</p>
+        <p class="demo-hint">Кнопки — живое демо приложения, клик по экрану открывает его крупно</p>
       </div>
 
       <div class="hero-copy">
@@ -340,6 +359,14 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Скриншот приложения крупно" hidden>
+  <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Закрыть">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="lightbox-img" alt="">
+  <p class="lightbox-caption" id="lightbox-caption"></p>
+</div>
+
 <div class="toast" id="toast"></div>
 <script>
 (function(){
@@ -429,13 +456,19 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
     toast: document.getElementById('toast'),
     themeToggle: document.getElementById('theme-toggle'),
     copyBtn: document.getElementById('copy-btn'),
-    walletAddr: document.getElementById('wallet-addr')
+    walletAddr: document.getElementById('wallet-addr'),
+    phoneZoom: document.getElementById('phone-zoom'),
+    lightbox: document.getElementById('lightbox'),
+    lightboxImg: document.getElementById('lightbox-img'),
+    lightboxCaption: document.getElementById('lightbox-caption'),
+    lightboxClose: document.getElementById('lightbox-close')
   };
 
   var currentKey = 'home';
   var stack = [];
   var currentAction = null;
   var panelTimer = null;
+  var lightboxTimer = null;
 
   function themeWord(){
     return root.getAttribute('data-theme') === 'dark' ? 'темный' : 'светлый';
@@ -476,6 +509,41 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
     }
   }
 
+  function lightboxOpen(){
+    return els.lightbox.classList.contains('visible');
+  }
+  function syncLightbox(){
+    if(!lightboxOpen()) return;
+    els.lightboxImg.src = els.img.getAttribute('src');
+    els.lightboxCaption.textContent = SCREENS[currentKey].title;
+  }
+  function openLightbox(){
+    var s = SCREENS[currentKey];
+    els.lightboxImg.src = els.img.getAttribute('src');
+    els.lightboxImg.alt = s.title;
+    els.lightboxCaption.textContent = s.title;
+    els.lightbox.hidden = false;
+    void els.lightbox.offsetWidth;
+    els.lightbox.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+    try{ els.lightboxClose.focus({preventScroll:true}); }catch(e){ els.lightboxClose.focus(); }
+  }
+  function closeLightbox(){
+    els.lightbox.classList.remove('visible');
+    document.body.style.overflow = '';
+    clearTimeout(lightboxTimer);
+    lightboxTimer = setTimeout(function(){ els.lightbox.hidden = true; }, 240);
+    try{ els.phoneZoom.focus({preventScroll:true}); }catch(e){ els.phoneZoom.focus(); }
+  }
+  els.phoneZoom.addEventListener('click', function(){
+    if(lightboxOpen()){ closeLightbox(); } else { openLightbox(); }
+  });
+  els.lightboxClose.addEventListener('click', closeLightbox);
+  els.lightbox.addEventListener('click', function(e){ if(e.target === els.lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && lightboxOpen()) closeLightbox();
+  });
+
   function render(direction){
     var s = SCREENS[currentKey];
     els.breadcrumb.textContent = s.title;
@@ -485,6 +553,7 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
     updateAction();
     var img = els.img;
     img.src = fileFor(currentKey);
+    syncLightbox();
     if(direction){
       img.classList.remove('anim-forward','anim-back');
       void img.offsetWidth;
@@ -528,6 +597,7 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
     try{ localStorage.setItem(THEME_KEY, next); }catch(e){}
     root.setAttribute('data-theme', next);
     els.img.src = fileFor(currentKey);
+    syncLightbox();
   });
 
   // toast
