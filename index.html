@@ -1,274 +1,333 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SelfCRM — минималистичная CRM для одного человека</title>
-<meta name="description" content="SelfCRM 1.3.1 — простая мобильная CRM для Android: клиенты, заказы с напоминаниями, товары и склад, история движения товара, оплата и прибыль. Работает офлайн, данные хранятся на устройстве. Бесплатно и с открытым исходным кодом.">
+<title>SelfCRM — простая CRM для мастера на Android</title>
+<meta name="description" content="SelfCRM 1.3.1 — простая мобильная CRM для Android: клиенты, заказы с напоминаниями, товары и склад, оплата и прибыль. Работает офлайн, данные хранятся на устройстве. Бесплатно и с открытым исходным кодом.">
 <link rel="canonical" href="https://doc9830.github.io/SelfCRMlanding/">
-<meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#18181b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f5f7">
+<meta name="color-scheme" content="light dark">
 <meta name="author" content="SelfCRM">
 <meta name="application-name" content="SelfCRM">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SelfCRM">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:title" content="SelfCRM — минималистичная CRM для одного человека">
-<meta property="og:description" content="Клиенты, заказы с напоминаниями, товары и склад в одном приложении. История движения товара, оплата и прибыль, чек в PDF. Работает офлайн, бесплатно, открытый исходный код.">
+<meta property="og:title" content="SelfCRM — простая CRM для мастера на Android">
+<meta property="og:description" content="Клиенты, заказы с напоминаниями, товары и склад в одном приложении. Оплата и прибыль, чек в PDF, история движения товара. Работает офлайн, бесплатно, открытый исходный код.">
 <meta property="og:url" content="https://doc9830.github.io/SelfCRMlanding/">
 <meta property="og:image" content="https://doc9830.github.io/SelfCRMlanding/og-cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SelfCRM — экран приложения на тёмную тему">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SelfCRM — минималистичная CRM для одного человека">
+<meta name="twitter:title" content="SelfCRM — простая CRM для мастера на Android">
 <meta name="twitter:description" content="Клиенты, заказы с напоминаниями, товары и склад. Работает офлайн, бесплатно, открытый исходный код.">
 <meta name="twitter:image" content="https://doc9830.github.io/SelfCRMlanding/og-cover.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232563eb'/%3E%3Ctext x='16' y='23' font-size='20' font-family='Arial,Helvetica,sans-serif' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"SelfCRM","applicationCategory":"BusinessApplication","operatingSystem":"Android","softwareVersion":"1.3.1","downloadUrl":"https://github.com/doc9830/SelfCRM/releases/download/v1.3.1/SelfCRM-1.3.1.apk","url":"https://doc9830.github.io/SelfCRMlanding/","description":"Простая мобильная CRM для одного человека: клиенты, заказы с напоминаниями, товары и склад. Данные хранятся локально, работает офлайн.","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"},"license":"https://github.com/doc9830/SelfCRM/blob/main/LICENSE","codeRepository":"https://github.com/doc9830/SelfCRM"}
 </script>
-<script>(function(){try{var t=localStorage.getItem('selfcrm-landing-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<script>
+// Тема ставится до отрисовки, чтобы не было «мигания». Плюс сразу грузим нужный скриншот героя.
+(function () {
+  var root = document.documentElement;
+  var theme = 'light';
+  try {
+    var saved = localStorage.getItem('selfcrm-landing-theme');
+    if (saved === 'dark' || saved === 'light') theme = saved;
+    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+  } catch (e) {}
+  root.setAttribute('data-theme', theme);
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', theme === 'dark' ? '#18181b' : '#f4f5f7');
+  var link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = 'Screenshots v3/Главный экран (' + (theme === 'dark' ? 'темный' : 'светлый') + ').png';
+  document.head.appendChild(link);
+})();
+</script>
 <style>
-:root{--bg:#f4f5f7;--surface:#ffffff;--surface-2:#eef0f4;--text:#111827;--muted:#6b7280;--border:#e6e8ec;--accent:#2563eb;--grad1:#2563eb;--grad2:#1d4ed8;--accent-contrast:#fff;--accent-soft:rgba(37,99,235,.12);--header-bg:rgba(244,245,247,.8);--shadow:0 24px 70px -32px rgba(15,17,21,.28);--shadow-sm:0 6px 22px -12px rgba(15,17,21,.22);--phone-bg:#ffffff;--phone-border:#e6e8ec;--radius:18px}
-[data-theme="dark"]{--bg:#18181b;--surface:#27272a;--surface-2:#1f1f23;--text:#f4f4f5;--muted:#a1a1aa;--border:#3f3f46;--accent:#60a5fa;--accent-soft:rgba(96,165,250,.16);--header-bg:rgba(24,24,27,.78);--shadow:0 30px 80px -32px rgba(0,0,0,.75);--shadow-sm:0 8px 26px -14px rgba(0,0,0,.6);--phone-bg:#27272a;--phone-border:#3f3f46}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .4s ease,color .4s ease}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+/* Палитра — ровно как в приложении SelfCRM (src/index.css). */
+:root{
+  --bg:#f4f5f7;--bg-soft:#eef0f4;--surface:#ffffff;--border:#e6e8ec;
+  --text:#111827;--muted:#6b7280;
+  --primary:#2563eb;--primary-strong:#1d4ed8;--primary-soft:#dbeafe;--on-primary:#ffffff;
+  --success:#16a34a;--warning:#d97706;
+  --r-xs:10px;--r-sm:12px;--r-md:16px;--r-lg:22px;--r-xl:26px;
+  --sh-sm:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.08);
+  --sh-md:0 14px 32px -20px rgba(16,24,40,.38);
+  --sh-lg:0 40px 80px -40px rgba(16,24,40,.5);
+  --header-bg:rgba(244,245,247,.82);
+  --max:1120px;
+}
+:root[data-theme='dark']{
+  --bg:#18181b;--bg-soft:#1f1f23;--surface:#27272a;--border:#3f3f46;
+  --text:#f4f4f5;--muted:#a1a1aa;
+  --primary:#60a5fa;--primary-strong:#93c5fd;--primary-soft:#1e3a8a;--on-primary:#0f172a;
+  --success:#4ade80;--warning:#fbbf24;
+  --sh-sm:0 1px 2px rgba(0,0,0,.4),0 1px 3px rgba(0,0,0,.5);
+  --sh-md:0 18px 36px -22px rgba(0,0,0,.85);
+  --sh-lg:0 44px 90px -40px rgba(0,0,0,.95);
+  --header-bg:rgba(24,24,27,.82);
+}
+/* Скриншоты приложения — ровно кадр телефона 390×844 CSS px (@2x).
+   Ширина кадра в hero привязана к высоте окна, чтобы демо целиком влезало
+   в первый экран и на 1440×900, и на 1366×768: 22px — рамка вокруг кадра,
+   .4621 = 390 / 844 — соотношение сторон снимка. */
+:root{--phone-ar:390/844;--phone-w:clamp(238px,calc((100dvh - 320px) * .4621 + 22px),372px)}
+@media(min-height:1000px){:root{--phone-w:min(414px,calc((100dvh - 320px) * .4621 + 22px))}}
+@media(max-width:1020px){:root{--phone-w:min(342px,calc((100dvh - 320px) * .4621 + 22px))}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  transition:background .35s ease,color .35s ease}
 img{display:block;max-width:100%}
-.container{max-width:1120px;margin:0 auto;padding:0 28px}
-.header{position:sticky;top:0;z-index:50;background:var(--header-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-.02em}
-.logo-mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--grad1),var(--grad2));display:grid;place-items:center;color:var(--accent-contrast);flex:none;box-shadow:0 6px 16px -6px var(--accent)}
-.nav{display:flex;align-items:center;gap:4px}
-.nav a{font-size:14px;color:var(--muted);padding:8px 12px;border-radius:10px;transition:color .2s ease,background .2s ease}
-.nav a:hover{color:var(--text);background:var(--surface-2)}
-.theme-toggle{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--muted);transition:color .2s ease,transform .2s ease,border-color .2s ease}
-.theme-toggle:hover{color:var(--text);border-color:var(--accent)}
-.theme-toggle:active{transform:scale(.92)}
-.theme-toggle svg{width:18px;height:18px}
-[data-theme="light"] .icon-moon,[data-theme="dark"] .icon-sun{display:none}
-section{padding:96px 0}
-.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.kicker::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--accent)}
-h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
-.section-head{max-width:640px;margin-bottom:52px}
-.section-head h2{font-size:clamp(30px,4.6vw,44px);font-weight:750}
-.section-head p{color:var(--muted);margin-top:14px;font-size:17px}
-
-/* hero: компактно, чтобы демо + кнопки + ссылки + описание влезали в первый экран */
-.hero{padding:20px 0 clamp(28px,4vh,72px);position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 400px at 12% 8%,var(--accent-soft),transparent 60%),radial-gradient(700px 500px at 88% 20%,var(--accent-soft),transparent 60%)}
-.hero-grid{position:relative;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:40px;align-items:start}
-@media(max-width:1120px){.hero-grid{gap:30px}}
-@media(max-width:1020px){.hero-grid{gap:24px}}
-@media(max-width:920px){.hero-grid{grid-template-columns:minmax(0,1fr);gap:32px}}
-
-/* phone demo */
-.demo-col{position:sticky;top:74px;align-self:start}
-@media(max-width:920px){.demo-col{position:static}}
-.subbar{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:28px;margin-bottom:10px}
-.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--muted);padding:7px 12px;border-radius:10px;border:1px solid var(--border);background:var(--surface);opacity:0;pointer-events:none;transform:translateX(6px);transition:opacity .3s ease,transform .3s ease,color .2s ease}
-.back-btn.visible{opacity:1;pointer-events:auto;transform:none}
-.back-btn:hover{color:var(--text)}
-.back-btn svg{width:15px;height:15px}
-.breadcrumb{font-size:13px;color:var(--muted);text-align:right;transition:opacity .3s ease}
-.phone{width:100%;max-width:var(--phone-w);margin:0 auto;background:var(--phone-bg);border:1px solid var(--phone-border);border-radius:26px;padding:10px;box-shadow:var(--shadow);transition:background .4s ease,border-color .4s ease}
-.phone-screen{position:relative;display:block;width:100%;aspect-ratio:515/657;overflow:hidden;border-radius:16px;background:#000;cursor:zoom-in;text-align:left;transition:box-shadow .25s ease}
-.phone-screen:hover{box-shadow:0 0 0 2px var(--accent) inset}
-.phone-screen:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{letter-spacing:-.02em;line-height:1.15;font-weight:750}
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:84px 0}
+.kicker{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);margin-bottom:12px}
+.lead{color:var(--muted);font-size:17px;margin-top:12px;max-width:640px}
+.head{margin-bottom:40px}
+.head h2{font-size:clamp(26px,3.6vw,38px)}
+/* ---------- шапка ---------- */
+.header{position:sticky;top:0;z-index:50;background:var(--header-bg);border-bottom:1px solid transparent;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:border-color .25s ease,background .35s ease}
+.header.scrolled{border-bottom-color:var(--border)}
+.header-inner{display:flex;align-items:center;gap:18px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:750;font-size:17px;letter-spacing:-.02em}
+.logo-mark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--primary);color:var(--on-primary);font-size:15px;font-weight:800}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{font-size:14.5px;color:var(--muted);transition:color .2s ease}
+.nav a:hover{color:var(--text)}
+.icon-btn{width:40px;height:40px;flex:none;border-radius:12px;display:grid;place-items:center;border:1px solid var(--border);
+  background:var(--surface);color:var(--text);transition:border-color .2s ease,transform .15s ease}
+.icon-btn:hover{border-color:var(--primary);color:var(--primary)}
+.icon-btn:active{transform:scale(.94)}
+.icon-btn svg{width:19px;height:19px}
+.theme-btn{margin-left:auto}
+@media(min-width:861px){.theme-btn{margin-left:0}}
+/* иконка темы: в светлой теме показываем луну, в тёмной — солнце */
+.ico-moon{display:block}.ico-sun{display:none}
+:root[data-theme='dark'] .ico-moon{display:none}
+:root[data-theme='dark'] .ico-sun{display:block}
+/* ---------- кнопки ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 22px;border-radius:14px;
+  font-size:15px;font-weight:650;white-space:nowrap;transition:transform .15s ease,box-shadow .22s ease,background .22s ease,border-color .22s ease,color .22s ease}
+.btn:active{transform:scale(.97)}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-primary{background:var(--primary);color:var(--on-primary);box-shadow:var(--sh-md)}
+.btn-primary:hover{background:var(--primary-strong);box-shadow:var(--sh-lg)}
+:root[data-theme='dark'] .btn-primary:hover{background:var(--primary-strong)}
+.btn-ghost{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+/* ---------- hero ---------- */
+.hero{position:relative;padding:56px 0 72px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-320px;right:-160px;width:680px;height:680px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at center,var(--primary-soft),transparent 62%);opacity:.85}
+:root[data-theme='dark'] .hero::before{opacity:.5}
+.hero-inner{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border-radius:999px;background:var(--surface);
+  border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--muted);box-shadow:var(--sh-sm)}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 0 3px rgba(22,163,74,.18)}
+.hero h1{margin-top:20px;font-size:clamp(30px,4.4vw,50px);font-weight:800;letter-spacing:-.035em}
+.hero .lead{font-size:17.5px;max-width:520px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-meta{margin-top:14px;font-size:13.5px;color:var(--muted)}
+.hero-visual{display:flex;flex-direction:column;align-items:center;gap:14px}
+/* ---------- телефон ---------- */
+.phone{width:var(--phone-w);padding:10px;border-radius:var(--r-xl);background:var(--surface);
+  border:1px solid var(--border);box-shadow:var(--sh-lg);transition:background .35s ease,border-color .35s ease}
+.phone-screen{position:relative;display:block;width:100%;aspect-ratio:var(--phone-ar);overflow:hidden;border-radius:17px;
+  background:var(--bg-soft);cursor:zoom-in;transition:box-shadow .25s ease}
+.phone-screen:hover{box-shadow:0 0 0 2px var(--primary) inset}
+.phone-screen:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
 .phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top;transition:opacity .35s ease}
-.zoom-badge{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:rgba(9,10,13,.55);color:#fff;opacity:0;transition:opacity .25s ease;pointer-events:none}
+.zoom-badge{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(9,10,13,.55);color:#fff;opacity:0;transition:opacity .25s ease;pointer-events:none}
 .zoom-badge svg{width:17px;height:17px}
 @media(hover:hover){.phone-screen:hover .zoom-badge{opacity:1}}
 @media(hover:none){.zoom-badge{display:none}}
-.phone-screen img.anim-forward{animation:slideF .42s cubic-bezier(.22,.9,.34,1)}
-.phone-screen img.anim-back{animation:slideB .42s cubic-bezier(.22,.9,.34,1)}
-@keyframes slideF{from{opacity:.2;transform:translateX(26px) scale(.985)}to{opacity:1;transform:none}}
-@keyframes slideB{from{opacity:.2;transform:translateX(-26px) scale(.985)}to{opacity:1;transform:none}}
-
-/* controls */
-.controls{width:100%;max-width:var(--phone-w);margin:12px auto 0}
-.tabs{display:flex;gap:6px;background:var(--surface-2);padding:5px;border-radius:15px;border:1px solid var(--border);transition:background .4s ease,border-color .4s ease}
-.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 2px;border-radius:11px;color:var(--muted);font-size:10px;font-weight:600;transition:color .2s ease,background .2s ease,transform .15s ease}
-.tab svg{width:17px;height:17px}
-.tab:hover{color:var(--text)}
-.tab:active{transform:scale(.93)}
-.tab.active{background:var(--surface);color:var(--text);box-shadow:var(--shadow-sm)}
-.action-wrap{margin-top:6px}
-.action-pill{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:13px;background:linear-gradient(135deg,var(--grad1),var(--grad2));color:var(--accent-contrast);font-size:13.5px;font-weight:600;box-shadow:0 12px 28px -12px var(--accent);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .3s ease,transform .3s ease}
-.action-pill.visible{opacity:1;pointer-events:auto;transform:none}
-.action-pill:active{transform:translateY(1px) scale(.98)}
-.action-pill svg{width:16px;height:16px}
-.demo-hint{margin-top:10px;text-align:center;font-size:11.5px;color:var(--muted)}
-/* hero copy + panel */
-.hero-copy h1{font-size:clamp(26px,2.6vw,40px);font-weight:800;letter-spacing:-.035em;line-height:1.08}
-.hero-copy .subtitle{margin-top:12px;font-size:15.5px;color:var(--muted);max-width:560px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.hero-meta{margin-top:10px;font-size:12.5px;color:var(--muted)}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:14px;font-size:15px;font-weight:600;transition:transform .15s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease}
-.btn:active{transform:scale(.97)}
-.btn svg{width:17px;height:17px}
-.btn-primary{background:linear-gradient(135deg,var(--grad1),var(--grad2));color:var(--accent-contrast);box-shadow:0 14px 30px -14px var(--accent)}
-.btn-primary:hover{box-shadow:0 18px 38px -14px var(--accent)}
-.btn-ghost{background:var(--surface);color:var(--text);border:1px solid var(--border)}
-.btn-ghost:hover{border-color:var(--accent)}
-.panel-card{margin-top:22px;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow-sm);transition:background .4s ease,border-color .4s ease,opacity .2s ease,transform .2s ease}
-.panel-card.is-exiting{opacity:0;transform:translateY(8px)}
-.panel-label{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.panel-label .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-.panel-card h2{font-size:19px;font-weight:750}
-.panel-card .desc{margin-top:7px;color:var(--muted);font-size:13.5px}
-.panel-list{margin-top:12px;display:grid;gap:7px}
-.panel-list li{display:flex;align-items:center;gap:10px;font-size:13px;list-style:none}
-.panel-list li svg{width:16px;height:16px;color:var(--accent);flex:none}
-
-/* features */
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:920px){.features-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.features-grid{grid-template-columns:1fr}}
-.feature{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:24px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
-.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);border-color:var(--accent)}
-.feature .fi{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);margin-bottom:16px}
-.feature .fi svg{width:21px;height:21px}
-.feature h3{font-size:17px;font-weight:700}
-.feature p{margin-top:8px;color:var(--muted);font-size:14.5px}
-/* free */
-.free{position:relative;overflow:hidden}
-.free-inner{background:linear-gradient(135deg,var(--grad1),var(--grad2));border-radius:28px;padding:56px;color:#fff;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
-@media(max-width:860px){.free-inner{grid-template-columns:1fr;padding:36px}}
-.free-inner h2{font-size:clamp(28px,4vw,40px);font-weight:800;color:#fff}
-.free-inner p{color:rgba(255,255,255,.92);margin-top:14px;font-size:16.5px}
-.free-points{margin-top:24px;display:grid;gap:12px}
-.free-points li{display:flex;align-items:center;gap:11px;list-style:none;font-size:15px;color:#fff}
-.free-points li svg{width:19px;height:19px;flex:none}
-.free-card{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:26px;backdrop-filter:blur(8px)}
-.free-card h3{color:#fff;font-size:20px;font-weight:750}
-.free-card .note{margin-top:10px;font-size:14.5px;color:rgba(255,255,255,.92)}
-
-/* donate */
-.donate-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:40px;box-shadow:var(--shadow-sm);text-align:center;max-width:720px;margin:0 auto}
-.donate-card h2{font-size:clamp(26px,3.6vw,34px);font-weight:800}
-.donate-card>p{color:var(--muted);margin-top:12px;font-size:16px}
-.wallet{display:flex;align-items:center;gap:10px;margin:28px auto 0;max-width:520px;background:var(--surface-2);border:1px dashed var(--accent);border-radius:14px;padding:13px 16px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14.5px;color:var(--text);overflow:hidden}
-.wallet .addr{flex:1;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.copy-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--text);transition:border-color .2s ease,color .2s ease}
-.copy-btn:hover{border-color:var(--accent);color:var(--accent)}
-.copy-btn svg{width:15px;height:15px}
-.wallet-note{margin-top:14px;font-size:13px;color:var(--muted)}
-
-/* install */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:860px){.steps{grid-template-columns:1fr}}
-.step{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px}
-.step .num{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.05em}
-.step h3{margin-top:12px;font-size:18px;font-weight:750}
-.step p{margin-top:8px;color:var(--muted);font-size:14.5px}
-
-/* footer */
-.footer{border-top:1px solid var(--border);padding:40px 0}
-.footer-inner{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
-.footer .links{display:flex;gap:20px;flex-wrap:wrap}
-.footer a{font-size:14px;color:var(--muted);transition:color .2s ease}
-.footer a:hover{color:var(--text)}
+.shot-caption{margin-top:9px;text-align:center;font-size:13px;color:var(--muted);min-height:19px}
+.shot-caption b{color:var(--text);font-weight:650}
+/* На низких окнах hero компактнее: кадр и демо должны остаться в первом экране. */
+@media(min-width:1021px) and (max-height:820px){.hero{padding:34px 0 56px}}
+@media(max-width:1020px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .hero-visual{order:2}
+  .btn-primary,.btn-ghost{flex:1 1 auto}
+}
+/* ---------- демо под кадром ---------- */
+.demo-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;max-width:var(--phone-w);margin:0 auto}
+.back-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 13px 6px 8px;border-radius:999px;
+  border:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:13px;font-weight:600;
+  transition:opacity .25s ease,color .2s ease,border-color .2s ease}
+.back-btn svg{width:16px;height:16px}
+.back-btn:hover{color:var(--text);border-color:var(--primary)}
+.back-btn.is-hidden{opacity:0;pointer-events:none}
+.breadcrumb{font-size:13px;font-weight:650;color:var(--muted)}
+.action-pill{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;
+  background:var(--primary);color:var(--on-primary);font-size:13px;font-weight:650;box-shadow:var(--sh-md);
+  transition:opacity .25s ease,transform .15s ease,background .22s ease}
+.action-pill svg{width:15px;height:15px}
+.action-pill:hover{background:var(--primary-strong)}
+.action-pill:active{transform:scale(.96)}
+.action-pill.is-hidden{opacity:0;pointer-events:none}
+.demo-hint{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center;max-width:340px}
+/* ---------- карточка «сейчас на экране» ---------- */
+.panel-card{margin-top:30px;padding:22px;border-radius:var(--r-md);background:var(--surface);
+  border:1px solid var(--border);box-shadow:var(--sh-sm);transition:opacity .28s ease,transform .28s ease}
+.panel-card.is-exiting{opacity:0;transform:translateY(6px)}
+.panel-label{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted)}
+.panel-label .dot{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 0 3px rgba(22,163,74,.18)}
+.panel-card h2{margin-top:12px;font-size:21px}
+.panel-card .desc{margin-top:10px;font-size:15px;color:var(--muted)}
+.panel-list{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+.panel-list li{display:flex;gap:9px;font-size:14.5px}
+.panel-list svg{width:17px;height:17px;flex:none;margin-top:3px;color:var(--success)}
+/* ---------- переключатели героя ---------- */
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;border:1px solid var(--border);
+  background:var(--surface);color:var(--muted);font-size:13px;font-weight:600;transition:all .2s ease}
+.pill svg{width:15px;height:15px;flex:none}
+.pill:hover{color:var(--text);border-color:var(--primary)}
+.pill[aria-pressed='true']{background:var(--primary-soft);border-color:transparent;color:var(--primary-strong)}
+/* ---------- галерея экранов ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:-16px 0 28px}
+.filters .pill{padding:8px 15px}
+.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(188px,1fr));gap:20px}
+.shot{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:10px;
+  box-shadow:var(--sh-sm);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.shot:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--primary)}
+.shot.is-hidden{display:none}
+.shot-btn{display:block;width:100%;aspect-ratio:var(--phone-ar);border-radius:var(--r-xs);overflow:hidden;background:var(--bg-soft);cursor:zoom-in}
+.shot-btn:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.shot-btn img{width:100%;height:100%;object-fit:cover;object-position:top}
+.shot figcaption{margin-top:10px;padding:0 2px}
+.shot figcaption b{display:block;font-size:13.5px;font-weight:650}
+.shot figcaption span{display:block;margin-top:2px;font-size:12px;color:var(--muted)}
+.shots-note{margin-top:22px;font-size:13.5px;color:var(--muted)}
+/* ---------- возможности ---------- */
+.features{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:18px}
+.feature{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:22px;
+  box-shadow:var(--sh-sm);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.feature:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:var(--sh-md)}
+.feature .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--primary-soft);color:var(--primary-strong)}
+:root[data-theme='dark'] .feature .ico{color:var(--primary)}
+.feature .ico svg{width:20px;height:20px}
+.feature h3{margin-top:16px;font-size:16.5px}
+.feature p{margin-top:8px;font-size:14.5px;color:var(--muted)}
+/* ---------- бесплатно ---------- */
+.free{background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.free-inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px;align-items:start}
+.free h2{font-size:clamp(24px,3.2vw,34px)}
+.free p{margin-top:12px;color:var(--muted);font-size:16.5px;max-width:520px}
+.free-points{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.free-points li{display:flex;gap:10px;font-size:15px}
+.free-points svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--success)}
+.free-card{padding:22px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--border);box-shadow:var(--sh-sm)}
+.free-card h3{font-size:17px}
+.free-card .note{margin-top:9px;font-size:14.5px;color:var(--muted)}
+.free-card .btn{margin-top:16px}
+@media(max-width:900px){.free-inner{grid-template-columns:1fr}}
+/* ---------- установка ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.step{padding:22px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--border);box-shadow:var(--sh-sm)}
+.step .num{font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--primary)}
+.step h3{margin-top:12px;font-size:17px}
+.step p{margin-top:8px;font-size:14.5px;color:var(--muted)}
+/* ---------- поддержать разработчика ---------- */
+.donate-card{max-width:640px;margin:0 auto;padding:28px;border-radius:var(--r-lg);background:var(--surface);
+  border:1px solid var(--border);box-shadow:var(--sh-md);text-align:center}
+.donate-card h2{font-size:clamp(22px,2.8vw,28px)}
+.donate-card p{margin-top:12px;color:var(--muted);font-size:15.5px}
+.wallet{margin-top:20px;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap}
+.addr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;padding:11px 15px;
+  border-radius:var(--r-xs);background:var(--bg-soft);border:1px solid var(--border);word-break:break-all}
+.copy-btn{display:inline-flex;align-items:center;gap:7px;padding:11px 15px;border-radius:var(--r-xs);
+  border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:14px;font-weight:600;
+  transition:border-color .2s ease,color .2s ease}
+.copy-btn svg{width:16px;height:16px}
+.copy-btn:hover{border-color:var(--primary);color:var(--primary)}
+.wallet-note{margin-top:12px;font-size:13px;color:var(--muted)}
+/* ---------- подвал ---------- */
+.footer{border-top:1px solid var(--border);padding:28px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .footer .copy{font-size:13.5px;color:var(--muted)}
-
-/* reveal */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,.9,.34,1),transform .7s cubic-bezier(.22,.9,.34,1)}
-.reveal.visible{opacity:1;transform:none}
-
-/* toast */
-.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:11px 18px;border-radius:12px;font-size:14px;font-weight:500;opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease;z-index:100}
-.toast.visible{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* lightbox: скриншот крупно */
-.lightbox{position:fixed;inset:0;z-index:120;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:rgba(9,10,13,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .25s ease}
+.footer .links{display:flex;gap:18px;flex-wrap:wrap}
+.footer .links a{font-size:13.5px;color:var(--muted);transition:color .2s ease}
+.footer .links a:hover{color:var(--primary)}
+/* ---------- лайтбокс ---------- */
+.lightbox{position:fixed;inset:0;z-index:100;display:grid;place-items:center;gap:12px;padding:28px 18px;
+  background:rgba(9,10,13,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  opacity:0;transition:opacity .24s ease}
 .lightbox[hidden]{display:none}
 .lightbox.visible{opacity:1}
-.lightbox img{max-width:min(94vw,660px);max-height:calc(100vh - 130px);width:auto;height:auto;border-radius:14px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9)}
-.lightbox-caption{font-size:14px;font-weight:600;color:rgba(255,255,255,.86)}
-.lightbox-close{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;transition:background .2s ease}
+.lightbox img{max-width:min(660px,100%);max-height:calc(100dvh - 132px);width:auto;border-radius:var(--r-xl);
+  border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
+.lightbox-caption{font-size:13.5px;color:#e4e4e7;text-align:center}
+.lightbox-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
+  background:rgba(255,255,255,.12);color:#fff;transition:background .2s ease}
 .lightbox-close:hover{background:rgba(255,255,255,.22)}
 .lightbox-close svg{width:20px;height:20px}
-
-/* ширина демо-кадра подстраивается под высоту окна: на 768-900px всё влезает целиком */
-:root{--phone-w:min(520px,calc((100dvh - 300px) * .784 + 22px))}
-@media(min-height:1000px){:root{--phone-w:min(560px,calc((100dvh - 300px) * .784 + 22px))}}
-@media(max-height:880px){.hero-copy h1{font-size:clamp(25px,2.3vw,32px)}.hero-copy .subtitle{font-size:15px;margin-top:10px}.panel-card{margin-top:18px}}
-@media(max-height:820px){:root{--phone-w:min(460px,calc((100dvh - 272px) * .784 + 22px))}.demo-hint{display:none}.panel-list{margin-top:10px}.panel-card .desc{font-size:13px}.panel-list li{font-size:12.5px}}
-@media(max-width:1120px){:root{--phone-w:min(440px,calc((100dvh - 300px) * .784 + 22px))}}
-@media(max-width:640px){.container{padding:0 20px}.nav{display:none}section{padding:64px 0}.hero{padding:16px 0 56px}}
+/* ---------- всплывающее сообщение ---------- */
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);z-index:120;padding:12px 18px;
+  border-radius:var(--r-sm);background:var(--surface);border:1px solid var(--border);box-shadow:var(--sh-md);
+  font-size:14px;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+.toast.visible{opacity:1;transform:translate(-50%,0)}
+/* ---------- смена кадра и появление при прокрутке ---------- */
+.anim-forward{animation:shot-in .38s ease}
+.anim-back{animation:shot-back .38s ease}
+@keyframes shot-in{from{opacity:.25;transform:translateX(10px)}to{opacity:1;transform:none}}
+@keyframes shot-back{from{opacity:.25;transform:translateX(-10px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:640px){
+  .container{padding:0 20px}.nav{display:none}section{padding:64px 0}.hero{padding:16px 0 56px}
+}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
-
-
-
+/* @END */
 </style>
 </head>
 <body>
-<header class="header">
+<header class="header" id="header">
   <div class="container header-inner">
     <a class="logo" href="#top"><span class="logo-mark">S</span>SelfCRM</a>
     <nav class="nav">
-      <a href="#demo">Экраны</a>
+      <a href="#screens">Экраны</a>
       <a href="#features">Возможности</a>
       <a href="#free">Бесплатно</a>
       <a href="#support">Поддержать</a>
       <a href="#install">Установка</a>
     </nav>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <button class="icon-btn theme-btn" id="theme-toggle" type="button" aria-label="Переключить тему" aria-pressed="false">
+      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
     </button>
   </div>
 </header>
 
 <main id="top">
   <section class="hero" id="demo">
-    <div class="container hero-grid">
-      <div class="demo-col reveal">
-        <div class="subbar">
-          <button class="back-btn" id="back-btn" aria-label="Назад">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-            Назад
-          </button>
-          <span class="breadcrumb" id="breadcrumb">Главный экран</span>
-        </div>
-        <div class="phone">
-          <button class="phone-screen" id="phone-zoom" type="button" aria-label="Открыть скриншот крупно">
-            <img id="phone-img" src="Screenshots v3/Главный экран (светлый).png" width="660" height="842" alt="Экран SelfCRM: главный экран приложения">
-            <span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
-          </button>
-        </div>
-        <div class="controls">
-          <div class="tabs" id="tabs">
-            <button class="tab" data-tab="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><span>Главный</span></button>
-            <button class="tab" data-tab="clients"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Клиенты</span></button>
-            <button class="tab" data-tab="orders"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 13h6M9 17h6"/></svg><span>Заказы</span></button>
-            <button class="tab" data-tab="products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4l-9-5.2M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7l8.7 5 8.7-5M12 22V12"/></svg><span>Товары</span></button>
-            <button class="tab" data-tab="warehouse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21h20"/><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg><span>Склад</span></button>
-          </div>
-          <div class="action-wrap">
-            <button class="action-pill" id="action-pill"><span id="action-label"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-          </div>
-        </div>
-        <p class="demo-hint">Кнопки — живое демо приложения, клик по экрану открывает его крупно</p>
-      </div>
-
-      <div class="hero-copy">
-        <span class="kicker">Мобильная CRM · офлайн</span>
+    <div class="container hero-inner">
+      <div class="hero-copy reveal">
+        <span class="badge"><span class="dot"></span>Версия 1.3.1 · Android · офлайн</span>
         <h1>Минималистичная CRM для одного человека</h1>
-        <p class="subtitle">Клиенты, заказы с напоминаниями, товары и склад — всё на вашем устройстве. Без интернета, без подписки, без лишнего.</p>
+        <p class="lead">Клиенты, заказы с напоминаниями, товары и склад — всё на вашем устройстве. Без интернета, без подписки, без лишнего.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://github.com/doc9830/SelfCRM/releases/download/v1.3.1/SelfCRM-1.3.1.apk" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
             Скачать APK 1.3.1
           </a>
           <a class="btn btn-ghost" href="https://github.com/doc9830/SelfCRM" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
             GitHub
           </a>
         </div>
@@ -276,52 +335,91 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
         <div class="panel-card" id="panel-card">
           <span class="panel-label"><span class="dot"></span>Сейчас на экране</span>
           <h2 id="panel-heading">Всё под рукой с первого экрана</h2>
-          <p class="desc" id="panel-desc">Главный экран показывает самое важное: сводку по клиентам, заказам и складу — без лишнего.</p>
+          <p class="desc" id="panel-desc">Активные заказы и выручка за месяц, напоминания по срокам и быстрые действия — без лишнего.</p>
           <ul class="panel-list" id="panel-list"></ul>
         </div>
       </div>
+      <div class="hero-visual reveal">
+        <div class="demo-nav">
+          <button class="back-btn is-hidden" id="back-btn" type="button" aria-label="Назад к предыдущему экрану"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Назад</button>
+          <span class="breadcrumb" id="breadcrumb">Главный экран</span>
+        </div>
+        <div class="phone">
+          <button class="phone-screen" id="phone-zoom" type="button" aria-label="Открыть скриншот крупно">
+            <img id="phone-img" src="Screenshots v3/Главный экран (светлый).png" width="780" height="1688" alt="SelfCRM: главный экран приложения">
+            <span class="zoom-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+          </button>
+        </div>
+        <div class="pills" id="tabs">
+          <button class="pill" type="button" data-tab="home" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Главный</button>
+          <button class="pill" type="button" data-tab="clients" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Клиенты</button>
+          <button class="pill" type="button" data-tab="orders" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 13h6M9 17h6"/></svg>Заказы</button>
+          <button class="pill" type="button" data-tab="products" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M16.5 9.4l-9-5.2M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7l8.7 5 8.7-5M12 22V12"/></svg>Товары</button>
+          <button class="pill" type="button" data-tab="warehouse" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M2 21h20"/><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg>Склад</button>
+        </div>
+        <button class="action-pill is-hidden" id="action-pill" type="button"><span id="action-label"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="demo-hint">Кнопки — живое демо приложения, клик по экрану открывает его крупно</p>
+      </div>
     </div>
   </section>
-  <section id="features">
+  <section id="screens">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="head reveal">
+        <span class="kicker">Экраны</span>
+        <h2>16 экранов приложения — в двух темах</h2>
+        <p class="lead">Кадры сняты прямо в приложении версии 1.3.1: 390×844, как на обычном телефоне. Нажмите на любой, чтобы открыть крупно.</p>
+      </div>
+      <div class="filters reveal" id="gallery-filters">
+        <button class="pill" type="button" data-filter="all" aria-pressed="true">Все</button>
+        <button class="pill" type="button" data-filter="clients" aria-pressed="false">Клиенты и заказы</button>
+        <button class="pill" type="button" data-filter="stock" aria-pressed="false">Товары и склад</button>
+        <button class="pill" type="button" data-filter="insights" aria-pressed="false">Главная, отчёты и настройки</button>
+      </div>
+      <div class="shots" id="shots"></div>
+      <p class="shots-note">Тема переключается кнопкой в шапке: вместе с оформлением страницы меняются и кадры приложения.</p>
+    </div>
+  </section>
+
+  <section id="features" style="background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="head reveal">
         <span class="kicker">Возможности</span>
         <h2>Всё, что нужно мастеру, — без лишнего</h2>
-        <p>Небольшой набор инструментов, который закрывает рутину и не отвлекает от работы.</p>
+        <p class="lead">Небольшой набор инструментов, который закрывает рутину и не отвлекает от работы.</p>
       </div>
-      <div class="features-grid">
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Клиенты</h3><p>Карточка с контактами, адресом и историей заказов.</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div><h3>Заказы</h3><p>Статусы «Новый / В работе / Завершён / Отменён», позиции и итог.</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><h3>Напоминания</h3><p>Внутри заказа: звонок, оплата, товар. На главном экране — просроченные, сегодняшние и завтрашние.</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg></div><h3>Чек в PDF</h3><p>Формируется офлайн и отправляется через «Поделиться».</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4l-9-5.2M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7l8.7 5 8.7-5M12 22V12"/></svg></div><h3>Товары и склад</h3><p>Каталог с ценами и остатками, автосписание при заказах.</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-6"/></svg></div><h3>История склада</h3><p>Поступления, списания и корректировки: дата, комментарий и остаток после операции.</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></div><h3>Оплата и прибыль</h3><p>Сколько оплачено и осталось, себестоимость, прибыль и наценка по позициям.</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div><h3>Маршрут</h3><p>Навигатор до клиента в один тап: Google Maps, Яндекс.Карты.</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Адреса</h3><p>Автодополнение при вводе: Дадата + локальная база офлайн.</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>Резервные копии</h3><p>Экспорт и импорт всех данных в JSON-файл.</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Приватность</h3><p>Все данные на устройстве и не отправляются на сервер.</p></div>
-        <div class="feature reveal"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div><h3>Тёмная тема</h3><p>Комфортная работа при слабом освещении.</p></div>
+      <div class="features">
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Клиенты</h3><p>Карточка с контактами, адресом, маршрутом и историей заказов.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div><h3>Заказы</h3><p>Статусы «Новый / В работе / Завершён / Отменён», позиции и суммы.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div><h3>Напоминания</h3><p>Внутри заказа: звонок, оплата, товар. На главном экране — просроченные, сегодняшние и завтрашние.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8"/></svg></div><h3>Чек в PDF</h3><p>Формируется офлайн и отправляется через «Поделиться».</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4l-9-5.2M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7l8.7 5 8.7-5M12 22V12"/></svg></div><h3>Товары и склад</h3><p>Каталог с ценами и остатками, товары и услуги в одном списке, автосписание при заказах.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-6"/></svg></div><h3>История склада</h3><p>Поступления, списания и корректировки: дата, комментарий и остаток после операции.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></div><h3>Оплата и прибыль</h3><p>Сколько оплачено и сколько осталось, себестоимость, прибыль и наценка по позициям.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Статистика</h3><p>Выручка, прибыль, средний чек и топы товаров и клиентов за любой период.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div><h3>Маршрут</h3><p>Навигатор до клиента в один тап: Google Maps, Яндекс.Карты.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Адреса</h3><p>Автодополнение при вводе: Дадата + локальная база офлайн.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>Резервные копии</h3><p>Экспорт и импорт всех данных в JSON-файл, копия перед импортом.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Приватность</h3><p>Все данные на устройстве и не отправляются на сервер.</p></div>
+        <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div><h3>Тёмная тема</h3><p>Комфортная работа при слабом освещении.</p></div>
       </div>
     </div>
   </section>
 
   <section class="free" id="free">
-    <div class="container">
-      <div class="free-inner reveal">
-        <div>
-          <h2>Полностью бесплатно</h2>
-          <p>SelfCRM — бесплатный проект с открытым исходным кодом. Никаких подписок и скрытых платежей.</p>
-          <ul class="free-points">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Клиенты, заказы, товары и склад</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Напоминания по заказам, чек в PDF и резервные копии</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Работа офлайн и тёмная тема</li>
-          </ul>
-        </div>
-        <div class="free-card">
-          <h3>Открытый исходный код</h3>
-          <p class="note">Код доступен на GitHub — смотрите, изучайте, предлагайте улучшения.</p>
-        </div>
+    <div class="container free-inner">
+      <div class="reveal">
+        <h2>Полностью бесплатно</h2>
+        <p>SelfCRM — бесплатный проект с открытым исходным кодом. Никаких подписок, рекламы и скрытых платежей.</p>
+        <ul class="free-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Клиенты, заказы, товары и склад</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Напоминания по заказам, чек в PDF и резервные копии</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Работа офлайн, один пользователь, данные на устройстве</li>
+        </ul>
+      </div>
+      <div class="free-card reveal">
+        <h3>Открытый исходный код</h3>
+        <p class="note">Код доступен на GitHub — смотрите, изучайте, предлагайте улучшения.</p>
+        <a class="btn btn-ghost" href="https://github.com/doc9830/SelfCRM" target="_blank" rel="noopener">Открыть репозиторий</a>
       </div>
     </div>
   </section>
@@ -331,8 +429,8 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
         <h2>Поддержать разработчика</h2>
         <p>Проект бесплатный, но вы можете сказать «спасибо» — отправить немного криптовалюты на развитие.</p>
         <div class="wallet">
-          <span class="addr" id="wallet-addr">0x0000…0000 (заготовка)</span>
-          <button class="copy-btn" id="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Копировать</span></button>
+          <span class="addr" id="wallet-addr">0x0000…0000</span>
+          <button class="copy-btn" id="copy-btn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="copy-label">Копировать</span></button>
         </div>
         <p class="wallet-note">Адрес кошелька появится здесь позже — это заготовка.</p>
       </div>
@@ -341,15 +439,15 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
 
   <section id="install">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="head reveal">
         <span class="kicker">Установка</span>
         <h2>Начать за минуту</h2>
-        <p>Приложение работает полностью офлайн. Интернет нужен только для адресов, маршрута и проверки обновлений.</p>
+        <p class="lead">Приложение работает полностью офлайн. Интернет нужен только для адресов, маршрута и проверки обновлений.</p>
       </div>
       <div class="steps">
         <div class="step reveal"><div class="num">01</div><h3>Скачайте APK</h3><p>Прямая ссылка на SelfCRM-1.3.1.apk — 4,1 МБ.</p></div>
         <div class="step reveal"><div class="num">02</div><h3>Разрешите установку</h3><p>Из неизвестных источников, если система попросит.</p></div>
-        <div class="step reveal"><div class="num">03</div><h3>Работайте</h3><p>Данные хранятся локально на устройстве.</p></div>
+        <div class="step reveal"><div class="num">03</div><h3>Работайте</h3><p>Данные хранятся локально на устройстве и не уходят на сервер.</p></div>
       </div>
     </div>
   </section>
@@ -357,7 +455,7 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
 
 <footer class="footer">
   <div class="container footer-inner">
-    <span class="copy">SelfCRM · бесплатно и с открытым исходным кодом</span>
+    <span class="copy">SelfCRM 1.3.1 · бесплатно и с открытым исходным кодом</span>
     <div class="links">
       <a href="https://github.com/doc9830/SelfCRM" target="_blank" rel="noopener">GitHub</a>
       <a href="https://github.com/doc9830/SelfCRM/releases" target="_blank" rel="noopener">Релизы</a>
@@ -374,81 +472,117 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
   <p class="lightbox-caption" id="lightbox-caption"></p>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 (function(){
   'use strict';
   var root = document.documentElement;
   var THEME_KEY = 'selfcrm-landing-theme';
 
+  // Кадры сняты из приложения 1.3.1 (390×844 @2x). file — имя файла в «Screenshots v3»,
+  // group — фильтр галереи, tab — кнопка живого демо в hero.
   var SCREENS = {
-    'home':            {file:'Главный экран', title:'Главный экран', tab:'home',
+    'home': {file:'Главный экран', title:'Главный экран', tab:'home', group:'insights',
+      caption:'Сводка, напоминания и быстрые действия',
       heading:'Всё под рукой с первого экрана',
-      desc:'Сверху — активные заказы и выручка за месяц. Ниже — напоминания по срокам и быстрые действия.',
+      desc:'Активные заказы и выручка за месяц, напоминания по срокам и быстрые действия — без лишнего.',
       bullets:['Активные заказы и выручка за месяц','Напоминания: просроченные, сегодня и завтра','Быстрые действия и низкие остатки'],
       action:{label:'Смотреть клиентов', target:'clients'}},
-    'clients':         {file:'Клиенты', title:'Клиенты', tab:'clients',
+    'clients': {file:'Клиенты', title:'Клиенты', tab:'clients', group:'clients',
+      caption:'Поиск по имени и телефону',
       heading:'Список клиентов и быстрый поиск',
-      desc:'Все клиенты в одном месте: контакты, число заказов и сумма покупок.',
+      desc:'Все клиенты в одном месте: контакты, число заказов и удобный поиск.',
       bullets:['Поиск по имени и телефону','Число заказов у каждого клиента','Архив для тех, кто давно не заказывал'],
-      action:{label:'Открыть архив', target:'clients-archive'}},
-    'clients-archive': {file:'Архив клиентов', title:'Архив клиентов', tab:'clients',
-      heading:'Архив не мешает основному списку',
-      desc:'Клиенты, с которыми давно не работали, убираются в архив и возвращаются в один тап.',
-      bullets:['Отдельный список архивных клиентов','Кнопка архива в шапке экрана','Возврат клиента в работу'],
       action:{label:'Открыть карточку', target:'client-card'}},
-    'client-card':     {file:'Карточка клиента', title:'Карточка клиента', tab:'clients',
+    'client-card': {file:'Карточка клиента', title:'Карточка клиента', tab:'clients', group:'clients',
+      caption:'Контакты, адрес и история заказов',
       heading:'Вся информация о клиенте',
       desc:'Контакты, адрес, маршрут и история заказов — на одной карточке.',
       bullets:['Телефон, email и адрес','Вызов, Telegram и WhatsApp в один тап','История заказов и маршрут до клиента'],
-      action:{label:'Указать адрес', target:'address-input'}},
-    'address-input':   {file:'Ввод адреса клиента', title:'Ввод адреса клиента', tab:'clients',
-      heading:'Ввод адреса с подсказками',
-      desc:'Автодополнение адресов: онлайн — Дадата, офлайн — локальная база.',
-      bullets:['Подсказки адреса при вводе','Кадастровый номер и координаты','Без интернета — локальная база адресов'],
+      action:{label:'Смотреть заказы', target:'orders'}},
+    'clients-archive': {file:'Архив клиентов', title:'Архив клиентов', tab:'clients', group:'clients',
+      caption:'Клиенты, убранные из работы',
+      heading:'Архив не мешает основному списку',
+      desc:'Клиенты, с которыми давно не работали, убираются в архив и возвращаются в один тап.',
+      bullets:['Отдельный список архивных клиентов','Кнопка архива в шапке экрана','Возврат клиента в работу'],
       action:null},
-    'orders':          {file:'Заказы', title:'Заказы', tab:'orders',
+    'orders': {file:'Заказы', title:'Заказы', tab:'orders', group:'clients',
+      caption:'Статусы, суммы и фильтры',
       heading:'Список заказов со статусами',
-      desc:'Все заказы с понятными статусами и итоговой суммой.',
+      desc:'Все заказы с понятными статусами, суммой и числом позиций.',
       bullets:['Статусы «Новый / В работе / Завершён / Отменён»','Сумма и число позиций','Фильтр по статусам и сортировка'],
       action:{label:'Открыть заказ', target:'order-card'}},
-    'order-card':      {file:'Незавершенный заказ', title:'Незавершённый заказ', tab:'orders',
+    'order-card': {file:'Заказ в работе', title:'Заказ в работе', tab:'orders', group:'clients',
+      caption:'Оплата, позиции и прибыль',
       heading:'Заказ: оплата, позиции и прибыль',
       desc:'Статус меняется в один тап, видно сколько оплачено и сколько осталось.',
       bullets:['Оплата: оплачено и остаток долга','Позиции, себестоимость и прибыль','Напоминание по заказу: звонок, оплата, товар'],
       action:{label:'Завершить заказ', target:'order-done'}},
-    'order-done':      {file:'Завершенный заказ', title:'Завершённый заказ', tab:'orders',
+    'order-done': {file:'Завершенный заказ', title:'Завершённый заказ', tab:'orders', group:'clients',
+      caption:'Оплаченный заказ и чек в PDF',
       heading:'Заказ завершён',
-      desc:'Оплаченный заказ с готовым чеком — отправьте его через «Поделиться».',
-      bullets:['Статус «Завершён», оплата отмечена','Прибыль по заказу','Отправка чека в мессенджер'],
+      desc:'Оплата отмечена, прибыль посчитана — остаётся отправить чек покупателю.',
+      bullets:['Статус «Завершён» и полная оплата','Прибыль по заказу и себестоимость','Чек в PDF через «Поделиться»'],
       action:null},
-    'products':        {file:'Товары', title:'Товары', tab:'products',
+    'order-new': {file:'Новый заказ', title:'Новый заказ', tab:'orders', group:'clients',
+      caption:'Оформление заказа и напоминание',
+      heading:'Новый заказ оформляется быстро',
+      desc:'Клиент, позиции из каталога, цены и напоминание по срокам — в одной форме.',
+      bullets:['Позиции из каталога с автоподстановкой цен','Товары и услуги в одном заказе','Напоминание: звонок, оплата, товар'],
+      action:null},
+    'products': {file:'Товары', title:'Товары', tab:'products', group:'stock',
+      caption:'Каталог товаров и услуг',
       heading:'Каталог товаров и услуг',
       desc:'Товары и услуги в одном списке: цены, остатки и поиск.',
       bullets:['Товары и услуги в одном списке','Цены и остатки по каждому','Поиск и быстрое добавление'],
       action:{label:'Открыть товар', target:'product-card'}},
-    'product-card':    {file:'Карточка товара', title:'Карточка товара', tab:'products',
+    'product-card': {file:'Карточка товара', title:'Карточка товара', tab:'products', group:'stock',
+      caption:'Цена, себестоимость и наценка',
       heading:'Цена, себестоимость и наценка',
       desc:'В форме позиции сразу видно прибыль с единицы и наценку в процентах.',
       bullets:['Товар или услуга','Цена, себестоимость и наценка','Минимальный остаток для предупреждения'],
       action:null},
-    'warehouse':       {file:'Склад', title:'Склад', tab:'warehouse',
+    'warehouse': {file:'Склад', title:'Склад', tab:'warehouse', group:'stock',
+      caption:'Остатки и низкие позиции',
       heading:'Остатки на складе',
-      desc:'Что в наличии и что заканчивается — с одного взгляда.',
+      desc:'Что в наличии и что заканчивается — видно с первого взгляда.',
       bullets:['Остатки по товарам','Подсветка низких остатков','Переход к истории движения'],
       action:{label:'Движение товара', target:'stock-move'}},
-    'stock-move':      {file:'Движение товара', title:'Движение товара', tab:'warehouse',
+    'stock-move': {file:'Движение товара', title:'Движение товара', tab:'warehouse', group:'stock',
+      caption:'Поступления и списания с остатком',
       heading:'Каждое движение остатка — в истории',
       desc:'Поступление, расход и корректировка фиксируются с датой, комментарием и остатком после операции.',
       bullets:['Поступление, расход, корректировка','Остаток после каждой операции','Подсказка «остаток станет: N шт»'],
-      action:{label:'Изменить остатки', target:'stock-edit'}},
-    'stock-edit':      {file:'Изменение остатков', title:'Изменение остатков', tab:'warehouse',
-      heading:'Изменение остатков',
+      action:{label:'Изменить остаток', target:'stock-edit'}},
+    'stock-edit': {file:'Изменение остатка', title:'Изменение остатка', tab:'warehouse', group:'stock',
+      caption:'Форма прихода с комментарием',
+      heading:'Изменение остатка',
       desc:'Корректировка склада с комментарием — остаток и история обновляются сразу.',
       bullets:['Количество и комментарий к операции','Пересчёт остатка до применения','Автосписание в заказах'],
+      action:null},
+    'stock-low': {file:'Низкий остаток', title:'Низкий остаток', tab:'warehouse', group:'stock',
+      caption:'Предупреждение о нехватке',
+      heading:'Позиции, которые заканчиваются',
+      desc:'Товар с остатком ниже минимального помечается красным — и в списке склада, и в карточке.',
+      bullets:['Плашка «товары с низким остатком»','Красная подсветка строки','Минимальный остаток задаётся у товара'],
+      action:null},
+    'statistics': {file:'Статистика', title:'Статистика', tab:'', group:'insights',
+      caption:'Выручка, прибыль и средний чек',
+      heading:'Цифры за любой период',
+      desc:'Выручка, прибыль, средний чек, статусы заказов и топы товаров и клиентов.',
+      bullets:['Периоды: сегодня, месяц, квартал, год','Прибыль = выручка минус себестоимость','Топ-5 товаров и клиентов'],
+      action:null},
+    'settings': {file:'Настройки', title:'Настройки', tab:'', group:'insights',
+      caption:'Тема, реквизиты и резервные копии',
+      heading:'Настройки под себя',
+      desc:'Тёмная тема, реквизиты для чека, база адресов и резервные копии данных.',
+      bullets:['Тёмная тема и реквизиты для чека','Экспорт и импорт данных в JSON','Сброс данных с копией на случай ошибки'],
       action:null}
   };
 
+  // Порядок карточек в галерее.
+  var GALLERY = ['home','clients','client-card','clients-archive','orders','order-card','order-new','order-done',
+    'products','product-card','warehouse','stock-move','stock-edit','stock-low','statistics','settings'];
   var els = {
     img: document.getElementById('phone-img'),
     breadcrumb: document.getElementById('breadcrumb'),
@@ -460,15 +594,18 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
     panelHeading: document.getElementById('panel-heading'),
     panelDesc: document.getElementById('panel-desc'),
     panelList: document.getElementById('panel-list'),
-    toast: document.getElementById('toast'),
+    shots: document.getElementById('shots'),
+    filters: document.getElementById('gallery-filters'),
     themeToggle: document.getElementById('theme-toggle'),
+    toast: document.getElementById('toast'),
+    header: document.getElementById('header'),
     copyBtn: document.getElementById('copy-btn'),
     walletAddr: document.getElementById('wallet-addr'),
-    phoneZoom: document.getElementById('phone-zoom'),
-    lightbox: document.getElementById('lightbox'),
-    lightboxImg: document.getElementById('lightbox-img'),
-    lightboxCaption: document.getElementById('lightbox-caption'),
-    lightboxClose: document.getElementById('lightbox-close')
+    lens: document.getElementById('lightbox'),
+    lensImg: document.getElementById('lightbox-img'),
+    lensCaption: document.getElementById('lightbox-caption'),
+    lensClose: document.getElementById('lightbox-close'),
+    phoneZoom: document.getElementById('phone-zoom')
   };
 
   var currentKey = 'home';
@@ -476,14 +613,11 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
   var currentAction = null;
   var panelTimer = null;
   var lightboxTimer = null;
-
-  function themeWord(){
-    return root.getAttribute('data-theme') === 'dark' ? 'темный' : 'светлый';
-  }
-  function fileFor(key){
-    return 'Screenshots v3/' + SCREENS[key].file + ' (' + themeWord() + ').png';
-  }
   var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+
+  function themeWord(){ return root.getAttribute('data-theme') === 'dark' ? 'темный' : 'светлый'; }
+  function fileFor(key){ return 'Screenshots v3/' + SCREENS[key].file + ' (' + themeWord() + ').png'; }
+
   function updatePanel(){
     var s = SCREENS[currentKey];
     els.panelCard.classList.add('is-exiting');
@@ -501,52 +635,41 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
     if(s.action){
       currentAction = s.action;
       els.actionLabel.textContent = s.action.label;
-      els.actionPill.classList.add('visible');
+      els.actionPill.classList.remove('is-hidden');
     } else {
       currentAction = null;
-      els.actionPill.classList.remove('visible');
+      els.actionPill.classList.add('is-hidden');
     }
   }
 
   function updateTabs(){
-    var tab = SCREENS[currentKey].tab;
-    var buttons = els.tabs.querySelectorAll('.tab');
+    var buttons = els.tabs.querySelectorAll('[data-tab]');
     for(var i=0;i<buttons.length;i++){
-      buttons[i].classList.toggle('active', buttons[i].getAttribute('data-tab') === tab);
+      var on = buttons[i].getAttribute('data-tab') === SCREENS[currentKey].tab;
+      buttons[i].setAttribute('aria-pressed', on ? 'true' : 'false');
     }
   }
-
-  function lightboxOpen(){
-    return els.lightbox.classList.contains('visible');
-  }
+  function lightboxOpen(){ return els.lens.classList.contains('visible'); }
   function syncLightbox(){
     if(!lightboxOpen()) return;
-    els.lightboxImg.src = els.img.getAttribute('src');
-    els.lightboxCaption.textContent = SCREENS[currentKey].title;
+    els.lensImg.src = els.img.getAttribute('src');
   }
   function openLightbox(){
     var s = SCREENS[currentKey];
-    els.lightboxImg.src = els.img.getAttribute('src');
-    els.lightboxImg.alt = s.title;
-    els.lightboxCaption.textContent = s.title;
-    els.lightbox.hidden = false;
-    void els.lightbox.offsetWidth;
-    els.lightbox.classList.add('visible');
-    document.body.style.overflow = 'hidden';
-    try{ els.lightboxClose.focus({preventScroll:true}); }catch(e){ els.lightboxClose.focus(); }
+    showFrame(els.img.getAttribute('src'), 'SelfCRM: ' + s.title.toLowerCase(), s.title);
   }
   function closeLightbox(){
-    els.lightbox.classList.remove('visible');
+    els.lens.classList.remove('visible');
     document.body.style.overflow = '';
     clearTimeout(lightboxTimer);
-    lightboxTimer = setTimeout(function(){ els.lightbox.hidden = true; }, 240);
+    lightboxTimer = setTimeout(function(){ els.lens.hidden = true; }, 240);
     try{ els.phoneZoom.focus({preventScroll:true}); }catch(e){ els.phoneZoom.focus(); }
   }
   els.phoneZoom.addEventListener('click', function(){
     if(lightboxOpen()){ closeLightbox(); } else { openLightbox(); }
   });
-  els.lightboxClose.addEventListener('click', closeLightbox);
-  els.lightbox.addEventListener('click', function(e){ if(e.target === els.lightbox) closeLightbox(); });
+  els.lensClose.addEventListener('click', closeLightbox);
+  els.lens.addEventListener('click', function(e){ if(e.target === els.lens) closeLightbox(); });
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape' && lightboxOpen()) closeLightbox();
   });
@@ -554,32 +677,30 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
   function render(direction){
     var s = SCREENS[currentKey];
     els.breadcrumb.textContent = s.title;
-    els.backBtn.classList.toggle('visible', stack.length > 0 || currentKey !== 'home');
+    els.backBtn.classList.toggle('is-hidden', stack.length === 0 && currentKey === 'home');
     updateTabs();
     updatePanel();
     updateAction();
     var img = els.img;
     img.src = fileFor(currentKey);
-    syncLightbox();
+    img.alt = 'SelfCRM: ' + s.title.toLowerCase();
     if(direction){
       img.classList.remove('anim-forward','anim-back');
       void img.offsetWidth;
       img.classList.add(direction === 'back' ? 'anim-back' : 'anim-forward');
     }
+    syncLightbox();
   }
 
   function navigateTo(key, direction){
-    if(key === currentKey) return;
+    if(key === currentKey || !SCREENS[key]) return;
     currentKey = key;
     render(direction);
   }
 
   els.backBtn.addEventListener('click', function(){
-    if(stack.length){
-      navigateTo(stack.pop(), 'back');
-    } else if(currentKey !== 'home'){
-      navigateTo('home', 'back');
-    }
+    if(stack.length){ navigateTo(stack.pop(), 'back'); }
+    else if(currentKey !== 'home'){ navigateTo('home', 'back'); }
   });
 
   els.actionPill.addEventListener('click', function(){
@@ -588,26 +709,106 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
     navigateTo(currentAction.target, 'forward');
   });
 
-  var tabButtons = els.tabs.querySelectorAll('.tab');
-  for(var i=0;i<tabButtons.length;i++){
+  var tabButtons = els.tabs.querySelectorAll('[data-tab]');
+  for(var t=0;t<tabButtons.length;t++){
     (function(btn){
       btn.addEventListener('click', function(){
         stack = [];
         navigateTo(btn.getAttribute('data-tab'), 'forward');
       });
-    })(tabButtons[i]);
+    })(tabButtons[t]);
+  }
+  // ----- галерея экранов -----
+  function showFrame(src, alt, title){
+    els.lensImg.src = src;
+    els.lensImg.alt = alt;
+    els.lensCaption.textContent = title;
+    els.lens.hidden = false;
+    void els.lens.offsetWidth;
+    els.lens.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+    try{ els.lensClose.focus({preventScroll:true}); }catch(e){ els.lensClose.focus(); }
   }
 
-  // theme toggle
+  function shotCard(key){
+    var s = SCREENS[key];
+    var fig = document.createElement('figure');
+    fig.className = 'shot reveal';
+    fig.setAttribute('data-group', s.group);
+
+    var btn = document.createElement('button');
+    btn.className = 'shot-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Открыть крупно: ' + s.title);
+
+    var img = document.createElement('img');
+    img.loading = 'lazy';
+    img.width = 780;
+    img.height = 1688;
+    img.alt = 'SelfCRM: ' + s.title.toLowerCase();
+    img.setAttribute('data-key', key);
+    img.src = fileFor(key);
+    btn.appendChild(img);
+    btn.addEventListener('click', function(){
+      showFrame(img.getAttribute('src'), img.alt, s.title);
+    });
+
+    var cap = document.createElement('figcaption');
+    var name = document.createElement('b');
+    name.textContent = s.title;
+    var note = document.createElement('span');
+    note.textContent = s.caption;
+    cap.appendChild(name);
+    cap.appendChild(note);
+
+    fig.appendChild(btn);
+    fig.appendChild(cap);
+    return fig;
+  }
+
+  function buildGallery(){
+    els.shots.innerHTML = '';
+    for(var i=0;i<GALLERY.length;i++){ els.shots.appendChild(shotCard(GALLERY[i])); }
+  }
+
+  // Вместе с темой сайта меняются и кадры в галерее.
+  function syncGalleryTheme(){
+    var imgs = els.shots.querySelectorAll('img[data-key]');
+    for(var i=0;i<imgs.length;i++){ imgs[i].src = fileFor(imgs[i].getAttribute('data-key')); }
+  }
+  // Фильтры галереи: «Все», «Клиенты и заказы», «Товары и склад», «Главная, отчёты и настройки».
+  els.filters.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest ? e.target.closest('[data-filter]') : null;
+    if(!btn) return;
+    var all = els.filters.querySelectorAll('[data-filter]');
+    for(var i=0;i<all.length;i++){
+      all[i].setAttribute('aria-pressed', all[i] === btn ? 'true' : 'false');
+    }
+    var group = btn.getAttribute('data-filter');
+    var cards = els.shots.querySelectorAll('.shot');
+    for(var c=0;c<cards.length;c++){
+      var show = group === 'all' || cards[c].getAttribute('data-group') === group;
+      cards[c].classList.toggle('is-hidden', !show);
+    }
+  });
+
+  // ----- тема -----
+  function applyTheme(theme){
+    root.setAttribute('data-theme', theme);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if(meta) meta.setAttribute('content', theme === 'dark' ? '#18181b' : '#f4f5f7');
+    els.themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    els.img.src = fileFor(currentKey);
+    syncGalleryTheme();
+    syncLightbox();
+  }
   els.themeToggle.addEventListener('click', function(){
     var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     try{ localStorage.setItem(THEME_KEY, next); }catch(e){}
-    root.setAttribute('data-theme', next);
-    els.img.src = fileFor(currentKey);
-    syncLightbox();
+    applyTheme(next);
   });
 
-  // toast
+  // ----- всплывающее сообщение -----
   var toastTimer = null;
   function showToast(msg){
     els.toast.textContent = msg;
@@ -616,20 +817,20 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
     toastTimer = setTimeout(function(){ els.toast.classList.remove('visible'); }, 2200);
   }
 
-  // copy wallet
   function legacyCopy(text){
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly','');
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
+    var area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly','');
+    area.style.position = 'fixed';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
     var ok = false;
     try{ ok = document.execCommand('copy'); }catch(e){}
-    document.body.removeChild(ta);
+    document.body.removeChild(area);
     return ok;
   }
+
   els.copyBtn.addEventListener('click', function(){
     var text = els.walletAddr.textContent.trim();
     function done(){ showToast('Адрес кошелька скопирован'); }
@@ -640,7 +841,14 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
     }
   });
 
-  // reveal on scroll
+  // ----- шапка и появление блоков -----
+  function onScroll(){ els.header.classList.toggle('scrolled', window.scrollY > 6); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  buildGallery();
+  render(null);
+  onScroll();
+
   var revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
@@ -653,11 +861,10 @@ h1,h2,h3{letter-spacing:-.03em;line-height:1.12}
     for(var f=0;f<revealEls.length;f++){ revealEls[f].classList.add('visible'); }
   }
 
-  render(null);
+  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
+  window.SelfCRMLanding = SCREENS;
 })();
-
 </script>
-
 </body>
 </html>
