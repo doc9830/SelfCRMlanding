@@ -82,7 +82,7 @@ def main() -> None:
     cover.alpha_composite(rounded(shot, shot_radius), (shot_x, shot_y))
 
     draw = ImageDraw.Draw(cover)
-    lines = LINES + [(75, 486, f"v{args.version} · Android", 22, FONT_REGULAR, (147, 197, 253))]
+    lines = LINES + [(75, 486, f"v{args.version} · Android и Telegram", 22, FONT_REGULAR, (147, 197, 253))]
     for line_x, line_y, text, size, path, color in lines:
         draw.text((line_x, line_y), text, font=ImageFont.truetype(path, size), fill=color)
 
