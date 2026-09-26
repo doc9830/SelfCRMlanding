@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SelfCRM — личная CRM на Android и в Telegram</title>
-<meta name="description" content="SelfCRM 1.5.2 — личная CRM на Android и в Telegram: клиенты, заказы с напоминаниями, товары и склад, оплата и прибыль. Обратная связь прямо из настроек: письмо разработчику с готовой темой и, по желанию, техническими данными. Поддержать проект можно разово звёздами Telegram. APK для Android или Mini App в Telegram — без установки и регистрации. Работает офлайн, данные хранятся на устройстве. Бесплатно и с открытым исходным кодом.">
+<meta name="description" content="SelfCRM 1.6.0 — личная CRM на Android и в Telegram: клиенты, заказы с напоминаниями, товары и склад. Без регистрации, без подписки и без рекламы: данные хранятся на устройстве, интернет для работы не нужен. Обратная связь прямо из настроек, поддержать проект можно разово звёздами Telegram. APK для Android или Mini App в Telegram. Исходный код доступен на GitHub (source available).">
 <link rel="canonical" href="https://doc9830.github.io/SelfCRMlanding/">
 <meta name="theme-color" content="#f4f5f7">
 <meta name="color-scheme" content="light dark">
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="SelfCRM">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="SelfCRM — личная CRM на Android и в Telegram">
-<meta property="og:description" content="Личная CRM на Android и в Telegram: клиенты, заказы с напоминаниями, товары и склад в одном приложении. Массовый приход и списание партии, оплата и прибыль, чек в PDF. APK или Mini App — без установки и регистрации. Работает офлайн, бесплатно, открытый исходный код.">
+<meta property="og:description" content="Личная CRM на Android и в Telegram: клиенты, заказы с напоминаниями, товары и склад, массовый приход и списание, оплата и прибыль, чек в PDF. Без регистрации, подписки и рекламы — данные остаются на устройстве. APK или Mini App в Telegram. Исходный код доступен на GitHub.">
 <meta property="og:url" content="https://doc9830.github.io/SelfCRMlanding/">
 <meta property="og:image" content="https://doc9830.github.io/SelfCRMlanding/og-cover.png">
 <meta property="og:image:width" content="1200">
@@ -22,11 +22,11 @@
 <meta property="og:image:alt" content="SelfCRM — главный экран приложения">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SelfCRM — личная CRM на Android и в Telegram">
-<meta name="twitter:description" content="Личная CRM: клиенты, заказы с напоминаниями, товары и склад. APK для Android или Mini App в Telegram. Работает офлайн, бесплатно, открытый исходный код.">
+<meta name="twitter:description" content="Личная CRM: клиенты, заказы с напоминаниями, товары и склад. APK для Android или Mini App в Telegram. Без регистрации, подписки и рекламы — данные на устройстве. Исходный код доступен на GitHub.">
 <meta name="twitter:image" content="https://doc9830.github.io/SelfCRMlanding/og-cover.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232563eb'/%3E%3Ctext x='16' y='23' font-size='20' font-family='Arial,Helvetica,sans-serif' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SelfCRM","applicationCategory":"BusinessApplication","operatingSystem":"Android, Web (Telegram Mini App)","softwareVersion":"1.5.2","downloadUrl":"https://github.com/doc9830/SelfCRM/releases/download/v1.5.2/SelfCRM-1.5.2.apk","url":"https://doc9830.github.io/SelfCRMlanding/","description":"Личная CRM на Android и в Telegram: клиенты, заказы с напоминаниями, товары и склад. Данные хранятся локально, работает офлайн.","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"},"license":"https://github.com/doc9830/SelfCRM/blob/main/LICENSE","codeRepository":"https://github.com/doc9830/SelfCRM"}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SelfCRM","applicationCategory":"BusinessApplication","operatingSystem":"Android, Web (Telegram Mini App)","softwareVersion":"1.6.0","downloadUrl":"https://github.com/doc9830/SelfCRM/releases/download/v1.6.0/SelfCRM-1.6.0.apk","url":"https://doc9830.github.io/SelfCRMlanding/","description":"Личная CRM на Android и в Telegram: клиенты, заказы с напоминаниями, товары и склад. Данные хранятся локально, работает офлайн.","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"},"license":"https://github.com/doc9830/SelfCRM/blob/main/LICENSE","codeRepository":"https://github.com/doc9830/SelfCRM"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"SelfCRM — Telegram Mini App","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://doc9830.github.io/selfcrm-tg/","description":"SelfCRM как Mini App в Telegram: клиенты, заказы с напоминаниями, товары и склад. Без установки и регистрации, данные хранятся на устройстве, работает офлайн.","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"},"license":"https://github.com/doc9830/selfcrm-tg/blob/main/LICENSE","codeRepository":"https://github.com/doc9830/selfcrm-tg"}
@@ -280,6 +280,10 @@ section{padding:84px 0}
 .free-card h3{font-size:17px}
 .free-card .note{margin-top:9px;font-size:14.5px;color:var(--muted)}
 .free-card .btn{margin-top:16px}
+/* Блок «Кому подойдёт»: задачи пользователя карточками в один-два столбца. */
+.audience-list{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:12px}
+.audience-list li{display:flex;gap:10px;align-items:flex-start;padding:15px 17px;border-radius:var(--r-sm);background:var(--surface);border:1px solid var(--border);box-shadow:var(--sh-sm);font-size:15.5px}
+.audience-list svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--success)}
 @media(max-width:900px){.free-inner{grid-template-columns:1fr}}
 /* ---------- установка ---------- */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
@@ -363,27 +367,23 @@ section{padding:84px 0}
   <section class="hero" id="demo">
     <div class="container hero-inner">
       <div class="hero-copy reveal">
-        <span class="badge"><span class="dot"></span>Версия 1.5.2 · Android и Telegram · офлайн</span>
-        <h1>Минималистичная личная CRM</h1>
-        <p class="lead">Клиенты, заказы с напоминаниями, товары и склад — всё на вашем устройстве. Без интернета, без подписки, без лишнего.</p>
+        <span class="badge"><span class="dot"></span>Версия 1.6.0 · Android и Telegram · офлайн</span>
+        <h1>Личная CRM без регистрации</h1>
+        <p class="lead">Клиенты, заказы с напоминаниями, товары и склад — на вашем устройстве. Без подписки, рекламы и чужого облака.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://github.com/doc9830/SelfCRM/releases/download/v1.5.2/SelfCRM-1.5.2.apk" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="https://github.com/doc9830/SelfCRM/releases/download/v1.6.0/SelfCRM-1.6.0.apk" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-            Скачать APK 1.5.2
+            Скачать APK 1.6.0
           </a>
           <a class="btn btn-tg" href="https://t.me/fastcrm_bot" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
             Telegram
           </a>
-          <a class="btn btn-ghost" href="https://github.com/doc9830/SelfCRM" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-            GitHub
-          </a>
         </div>
-        <p class="hero-meta">Версия 1.5.2 · Android · APK 4,1 МБ · бесплатно, без рекламы и подписок.</p>
+        <p class="hero-meta">Версия 1.6.0 · Android · APK 4,1 МБ · бесплатно, без рекламы и подписок · <a href="https://github.com/doc9830/SelfCRM" target="_blank" rel="noopener">исходный код на GitHub</a></p>
         <div class="hero-tg">
           <span class="hero-tg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
-          <p><b>В Telegram APK не нужен:</b> приложение открывается из бота <a href="https://t.me/fastcrm_bot" target="_blank" rel="noopener">@fastcrm_bot</a>. Файл копии там не сохранить: копия хранится в вашем аккаунте Telegram.</p>
+          <p><b>В Telegram APK не нужен:</b> приложение открывается из бота <a href="https://t.me/fastcrm_bot" target="_blank" rel="noopener">@fastcrm_bot</a> — устанавливать нечего.</p>
         </div>
         <div class="panel-card" id="panel-card">
           <span class="panel-label"><span class="dot"></span>Сейчас на экране</span>
@@ -415,11 +415,27 @@ section{padding:84px 0}
       </div>
     </div>
   </section>
+  <section id="audience">
+    <div class="container">
+      <div class="head reveal">
+        <span class="kicker">Кому подойдёт</span>
+        <h2>Если у вас…</h2>
+        <p class="lead">SelfCRM собирает это в одном месте — без блокнотов, таблиц и переписок в трёх мессенджерах.</p>
+      </div>
+      <ul class="audience-list reveal">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>несколько десятков постоянных клиентов</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>заказы в мессенджерах и заметках</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>напоминания, которые легко забыть</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>товары и расходники, остатки которых приходится держать в голове</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>желание видеть не только выручку, но и прибыль</li>
+      </ul>
+    </div>
+  </section>
   <section id="screens">
     <div class="container">
       <div class="head reveal">
         <span class="kicker">Экраны</span>
-        <h2>20 экранов приложения — в двух темах</h2>
+        <h2>22 экрана приложения — в двух темах</h2>
         <p class="lead">Кадры сняты прямо в приложении: 390×844, как на обычном телефоне. Нажмите на любой, чтобы открыть крупно.</p>
       </div>
       <div class="filters reveal" id="gallery-filters">
@@ -473,6 +489,7 @@ section{padding:84px 0}
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Все возможности те же: клиенты и заказы с напоминаниями, товары и склад, оплата и прибыль, статистика за период, маршрут и резервные копии.</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Одно приложение на всех устройствах: iPhone, iPad, Android и настольный Telegram.</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Чек в PDF уходит ссылкой на страницу чека: получатель сохраняет файл себе, а на iPhone нужный файл отдаёт «Поделиться» → «Сохранить в файлы».</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Резервную копию можно сохранить в облаке Telegram — по желанию: обычная работа идёт с данными на устройстве, а копия просто лежит в вашем аккаунте.</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Работает офлайн после первой загрузки, а системная кнопка «Назад» Telegram возвращает на предыдущий экран.</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Обновляться не нужно: Mini App всегда открывается с последней версией, опубликованной на GitHub Pages.</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Если приложение пригодилось, проект можно поддержать разово звёздами Telegram: небольшая плашка на главном экране, без подписки и без ограничений.</li>
@@ -501,7 +518,7 @@ section{padding:84px 0}
     <div class="container free-inner">
       <div class="reveal">
         <h2>Полностью бесплатно</h2>
-        <p>SelfCRM — бесплатный проект с открытым исходным кодом. Никаких подписок, рекламы и скрытых платежей.</p>
+        <p>SelfCRM — бесплатный проект: без подписок, рекламы и скрытых платежей. Исходный код доступен на GitHub, чтобы приложение и его сборку можно было проверить самому.</p>
         <ul class="free-points">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Клиенты, заказы, товары и склад</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Напоминания по заказам, чек в PDF и резервные копии</li>
@@ -509,8 +526,8 @@ section{padding:84px 0}
         </ul>
       </div>
       <div class="free-card reveal">
-        <h3>Открытый исходный код</h3>
-        <p class="note">Код доступен на GitHub — смотрите, изучайте, предлагайте улучшения.</p>
+        <h3>Исходный код доступен</h3>
+        <p class="note">Код лежит на GitHub открыто: его можно прочитать, изучить и собрать приложение самому. Это не свободная лицензия — распространять изменённые версии и брать код в другие продукты можно только с разрешения автора.</p>
         <a class="btn btn-ghost" href="https://github.com/doc9830/SelfCRM" target="_blank" rel="noopener">Открыть репозиторий</a>
       </div>
     </div>
@@ -537,7 +554,7 @@ section{padding:84px 0}
         <p class="lead">Приложение работает полностью офлайн. Интернет нужен только для адресов, маршрута и проверки обновлений.</p>
       </div>
       <div class="steps">
-        <div class="step reveal"><div class="num">01</div><h3>Скачайте APK</h3><p>Прямая ссылка на SelfCRM-1.5.2.apk — 4,1 МБ.</p></div>
+        <div class="step reveal"><div class="num">01</div><h3>Скачайте APK</h3><p>Прямая ссылка на SelfCRM-1.6.0.apk — 4,1 МБ.</p></div>
         <div class="step reveal"><div class="num">02</div><h3>Разрешите установку</h3><p>Из неизвестных источников, если система попросит.</p></div>
         <div class="step reveal"><div class="num">03</div><h3>Работайте</h3><p>Данные хранятся локально на устройстве и не уходят на сервер.</p></div>
       </div>
@@ -548,7 +565,7 @@ section{padding:84px 0}
 
 <footer class="footer">
   <div class="container footer-inner">
-    <span class="copy">SelfCRM 1.5.2 · бесплатно и с открытым исходным кодом</span>
+    <span class="copy">SelfCRM 1.6.0 · бесплатно, без рекламы и подписок</span>
     <div class="links">
       <a href="https://github.com/doc9830/SelfCRM" target="_blank" rel="noopener">GitHub</a>
       <a href="https://github.com/doc9830/SelfCRM/releases" target="_blank" rel="noopener">Релизы</a>
@@ -575,7 +592,7 @@ section{padding:84px 0}
   var root = document.documentElement;
   var THEME_KEY = 'selfcrm-landing-theme';
 
-  // Кадры сняты из приложения 1.5.0 (390×844 @2x). file — имя файла в «Screenshots v3»,
+  // Кадры сняты из приложения 1.6.0 (390×844 @2x). file — имя файла в «Screenshots v3»,
   // group — фильтр галереи, tab — кнопка живого демо в hero.
   var SCREENS = {
     'home': {file:'Главный экран', title:'Главный экран', tab:'home', group:'insights',
@@ -603,10 +620,10 @@ section{padding:84px 0}
       bullets:['Отдельный список архивных клиентов','Кнопка архива в шапке экрана','Возврат клиента в работу'],
       action:null},
     'client-new': {file:'Новый клиент', title:'Новый клиент', tab:'clients', group:'clients',
-      caption:'Цифровая клавиатура и маска номера',
+      caption:'Форма клиента и маска номера',
       heading:'Новый клиент — без ошибок в номере',
-      desc:'Поле телефона открывает цифровую клавиатуру, а маска оставляет в номере только цифры, «+», пробелы и дефис.',
-      bullets:['Цифровая клавиатура для телефона','Маска: только цифры и оформление номера','Недобранный номер не сохранится'],
+      desc:'Поле телефона принимает только цифры и оформление номера, адрес подсказывается при вводе, а недобранный номер не сохранится.',
+      bullets:['Поля имени, телефона и адреса','Маска: только цифры и оформление номера','Недобранный номер не сохранится'],
       action:null},
     'orders': {file:'Заказы', title:'Заказы', tab:'orders', group:'clients',
       caption:'Статусы, суммы и фильтры',
@@ -627,10 +644,10 @@ section{padding:84px 0}
       bullets:['Статус «Завершён» и полная оплата','Прибыль по заказу и себестоимость','Чек в PDF через «Поделиться»','Кнопка «Повторить заказ» для новой сделки'],
       action:{label:'Повторить заказ', target:'order-repeat'}},
     'order-new': {file:'Новый заказ', title:'Новый заказ', tab:'orders', group:'clients',
-      caption:'Оформление заказа и напоминание',
+      caption:'Клиент, позиции из каталога и цены',
       heading:'Новый заказ оформляется быстро',
-      desc:'Клиент, позиции из каталога, цены и напоминание по срокам — в одной форме.',
-      bullets:['Позиции из каталога с автоподстановкой цен','Товары и услуги в одном заказе','Напоминание: звонок, оплата, товар'],
+      desc:'Клиент выбирается из базы, позиции — из каталога: цена, количество и себестоимость подставляются сами, прибыль по заказу видна сразу.',
+      bullets:['Клиент выбирается из базы','Позиции из каталога: товары и услуги','Прибыль по позиции считается сразу'],
       action:null},
     'order-repeat': {file:'Повторить заказ', title:'Повторить заказ', tab:'orders', group:'clients',
       caption:'Новый заказ по образцу старого',
@@ -672,7 +689,7 @@ section{padding:84px 0}
       caption:'Поступления и списания с остатком',
       heading:'Каждое движение остатка — в истории',
       desc:'Поступление, расход и корректировка фиксируются с датой, комментарием и остатком после операции.',
-      bullets:['Поступление, расход, корректировка','Остаток после каждой операции','Подсказка «остаток станет: N шт»'],
+      bullets:['Поступление, расход, корректировка','Остаток после каждой операции','Минимальный остаток и себестоимость рядом'],
       action:{label:'Изменить остаток', target:'stock-edit'}},
     'stock-edit': {file:'Изменение остатка', title:'Изменение остатка', tab:'warehouse', group:'stock',
       caption:'Форма прихода с комментарием',
@@ -697,12 +714,25 @@ section{padding:84px 0}
       heading:'Настройки под себя',
       desc:'Тёмная тема, реквизиты для чека, база адресов и резервные копии данных.',
       bullets:['Тёмная тема и реквизиты для чека','Экспорт и импорт данных в JSON','Сброс данных с копией на случай ошибки'],
+      action:null},
+    'backup': {file:'Резервная копия', title:'Резервная копия', tab:'', group:'insights',
+      caption:'Копия файлом и восстановление',
+      heading:'Своя копия данных — в один файл',
+      desc:'Раздел «Резервная копия»: копия текущего состояния, восстановление из файла с показом состава и предупреждение, если данные пришли повреждёнными.',
+      bullets:['Копия файлом: клиенты, заказы, товары, склад','Восстановление из файла с проверкой состава','Копия «данных до импорта» на случай ошибки'],
+      action:null},
+    'feedback': {file:'Обратная связь', title:'Обратная связь', tab:'', group:'insights',
+      caption:'Письмо разработчику из настроек',
+      heading:'Написать разработчику',
+      desc:'Вид обращения, сообщение и, по желанию, технические данные: письмо собирается в приложении и открывается в почтовой программе.',
+      bullets:['Идея, ошибка или вопрос — сразу в теме письма','Технические данные только по галочке','Адрес и текст письма можно скопировать'],
       action:null}
   };
 
   // Порядок карточек в галерее.
   var GALLERY = ['home','clients','client-card','clients-archive','client-new','orders','order-card','order-repeat','order-new','order-done',
-    'products','product-card','warehouse','stock-in','stock-out','stock-move','stock-edit','stock-low','statistics','settings'];
+    'products','product-card','warehouse','stock-in','stock-out','stock-move','stock-edit','stock-low','statistics','settings',
+    'backup','feedback'];
   var els = {
     img: document.getElementById('phone-img'),
     breadcrumb: document.getElementById('breadcrumb'),
