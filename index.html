@@ -149,6 +149,17 @@ section{padding:84px 0}
 .hero-meta{margin-top:14px;font-size:13.5px;color:var(--muted)}
 .hero-meta a{color:var(--primary);font-weight:650}
 .hero-meta a:hover{text-decoration:underline}
+/* Telegram-версия в шапке: кнопка стоит в ряду с APK и GitHub, а под подписью hero —
+   строка про то, чем работа из мессенджера отличается от приложения. Строка без рамки
+   и в две строки нарочно: каждая лишняя строка в левом столбце hero сдвигает демо вниз,
+   а кадр и демо должны влезать в первый экран (см. README, «Hero собран так…»). */
+.hero-tg{display:flex;gap:8px;align-items:flex-start;margin-top:12px;max-width:560px}
+.hero-tg-ico{display:flex;flex:none;margin-top:2px;color:var(--tg)}
+.hero-tg-ico svg{width:16px;height:16px}
+.hero-tg p{font-size:13px;line-height:1.5;color:var(--muted)}
+.hero-tg b{color:var(--text)}
+.hero-tg a{color:var(--primary);font-weight:650}
+.hero-tg a:hover{text-decoration:underline}
 .hero-visual{display:flex;flex-direction:column;align-items:center;gap:14px}
 /* ---------- телефон ---------- */
 .phone{width:var(--phone-w);padding:10px;border-radius:var(--r-xl);background:var(--surface);
@@ -360,12 +371,20 @@ section{padding:84px 0}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
             Скачать APK 1.5.2
           </a>
+          <a class="btn btn-tg" href="https://t.me/fastcrm_bot" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Telegram
+          </a>
           <a class="btn btn-ghost" href="https://github.com/doc9830/SelfCRM" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
             GitHub
           </a>
         </div>
-        <p class="hero-meta">Версия 1.5.2 · Android · APK 4,1 МБ · бесплатно, без рекламы и подписок. Есть и <a href="#telegram">версия для Telegram</a> — без установки.</p>
+        <p class="hero-meta">Версия 1.5.2 · Android · APK 4,1 МБ · бесплатно, без рекламы и подписок.</p>
+        <div class="hero-tg">
+          <span class="hero-tg-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
+          <p><b>В Telegram APK не нужен:</b> приложение открывается из бота <a href="https://t.me/fastcrm_bot" target="_blank" rel="noopener">@fastcrm_bot</a>. Файл копии там не сохранить: копия хранится в вашем аккаунте Telegram.</p>
+        </div>
         <div class="panel-card" id="panel-card">
           <span class="panel-label"><span class="dot"></span>Сейчас на экране</span>
           <h2 id="panel-heading">Всё под рукой с первого экрана</h2>
